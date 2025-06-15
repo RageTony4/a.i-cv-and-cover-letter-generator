@@ -5,8 +5,8 @@ exports.handler = async function(event) {
 
     try {
         const { prompt, model } = JSON.parse(event.body);
-        const apiKey = process.env.OPENROUTER_API_KEY;
-        console.log("API Key from environment:", apiKey); // Add this line for debugging
+        const apiKey = Netlify.env.OPENROUTER_API_KEY; // Changed to Netlify.env
+        console.log("API Key from Netlify.env:", apiKey); // Add this line for debugging
 
         if (!apiKey) {
             throw new Error("API key is not configured on the server.");
